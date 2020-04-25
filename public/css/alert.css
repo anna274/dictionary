@@ -1,0 +1,17 @@
+.alert {
+  position: absolute;
+  display: block;
+  width: 400px;
+  left: calc(50% - 200px);
+  padding: 5px 15px;
+  box-sizing: border-box;
+  opacity: 0.8;
+  z-index: 10000;
+}
+
+.alert_success {
+  background-color: rgb(0, 170, 85);
+}
+.alert_danger {
+  background-color: rgb(255, 51, 15);
+}
