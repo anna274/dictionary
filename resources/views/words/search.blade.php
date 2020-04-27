@@ -9,7 +9,7 @@
             </div>
             <div class="options">
               <form class="search" action="/search">
-                <input class="search__input" type="text" name="findme" placeholder='Find me...'>
+                <input class="search__input" type="text" name="findme" placeholder='{{$poisk}}'>
                   <button class="search__button" type="submit">
                     <span class="ico ico-search"></span>
                  </button>
@@ -18,16 +18,16 @@
             </div>
             <div class="blank blank_wide">
                 <div class="word-lines">
-                  @foreach($words as $word)
+                  @foreach($objs as $obj)
                   <div class="word-line">
-                    <div class="word"><a class="show-link" href="words/{{$word['id']}}">{{$word['expression']}}</a></div>
-                    <div class="word__definition">{{$word['meaning']}}</div>
+                    <div class="word"><a class="show-link" href="words/{{$obj['id']}}">{{$obj['expression']}}</a></div>
+                    <div class="word__definition">{{$obj['meaning']}}</div>
                   </div>
                   @endforeach
                 </div>
             </div> 
             <div class="workspace__pagination">
-              {!! $words->links();!!}
+              {!! $objs->links();!!}
             </div>        
         </div>
     </main>  

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Word;
+use Session;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class WordController extends Controller
 {
@@ -47,6 +51,9 @@ class WordController extends Controller
         ]);
         
         $word->save();
+
+        $user_id = Auth::User()->id;
+        $word->users()->attach($user_id);
 
         Session::flash('success', 'Word Added');
         return redirect()->route('words.index');

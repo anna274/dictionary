@@ -32,7 +32,7 @@
                         <button type="submit" class="button">Log in</button>
                     </form>
                     <div class="autho__links">
-                        <a href="/sign-up">Create an account</a>
+                        <a href="/register">Create an account</a>
                         <a href="/">Go home</a>
                     </div>
                     

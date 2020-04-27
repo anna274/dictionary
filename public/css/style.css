@@ -244,6 +244,10 @@ p {
     background-image: url('../assets/img/icons/logout.png')
 }
 
+.ico-interest {
+    background-image: url('../assets/img/icons/interest.png')
+}
+
 
 .autho {
     margin: auto;
@@ -471,6 +475,7 @@ p {
 }
 
 .workspace__title-area {
+
     margin-bottom: 20px;
 }
 .workspace__title {

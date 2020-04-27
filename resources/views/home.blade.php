@@ -1,36 +1,6 @@
 @extends('layouts.default')
 @section('content')
-    <nav class="dropdown">
-        <li class="menu-item drop">
-            <div class="menu_img">
-                <img class="ico" src="{{ Auth::user()->photoUrl }}">
-            </div>
-            <a href="/home">{{ Auth::user()->name }}</a>
-        </li>
-            <ul class="dropdown-content">
-                <li class="menu-item">
-                    <div class="menu_img">
-                    <span class="ico ico-dictionary"></span>
-                    </div>
-                    <a href="/words">My dictionary</a>
-                </li>
-                <li class="menu-item">
-                    <div class="menu_img">
-                    <span class="ico ico-edit"></span>
-                    </div>
-                    <a href="/users/{{Auth::user()->id}}">Edit profile</a>
-                </li>
-                <li class="menu-item">
-                    <div class="menu_img">
-                        <span class="ico ico-logout"></span>
-                    </div>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                    <button type="submit">Logout</button>
-                        @csrf
-                    </form>
-                </li>
-            </ul>
-    </nav>
+    @include('partials._menu')
     <main class="lilium-background">
         <div class="workspace">
             <div class="workspace__title-area">
