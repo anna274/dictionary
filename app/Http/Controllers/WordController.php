@@ -15,10 +15,23 @@ class WordController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function commonIndex()
     {
         $words = Word::orderBy('expression')->paginate(5);
-        return view('words.index', compact('words'));
+        return view('words.index_common', compact('words'));
+    }
+
+    public function index()
+    {   
+        $isAdmin = Auth::user()->isAdmin;
+
+        if( $isAdmin ) {
+            $words = Word::orderBy('expression')->paginate(5);
+        } else {
+            $words = Auth::user()->words()->orderBy('expression')->paginate(5);
+        }
+
+        return view('words.index', compact('words', 'isAdmin'));
     }
 
     /**
@@ -59,6 +72,20 @@ class WordController extends Controller
         return redirect()->route('words.index');
     }
 
+    public function add($id) {
+
+        $user_id = Auth::User()->id;
+        $word = Word::find($id);
+        if ($word->users()->where('user_id', '=', $user_id)->exists()) {
+            Session::flash('attention', 'Word is already exists in your dictionary!');
+        } else {
+            $word->users()->attach($user_id);
+            Session::flash('success', 'Word was successfuly added!');
+        }
+        
+        return redirect('/common-dictionary');
+    }
+
     /**
      * Display the specified resource.
      *
@@ -69,6 +96,11 @@ class WordController extends Controller
     {
         $word = Word::find($id);
         return view('words.show')->withWord($word);
+    }
+
+    public function commonShow($id) {
+        $word = Word::find($id);
+        return view('words.show_common')->withWord($word);
     }
 
     /**
@@ -119,8 +151,14 @@ class WordController extends Controller
      */
     public function destroy($id)
     {
-        $word = Word::find($id);
-        $word->delete();
+        if(Auth::user()->isAdmin) {
+            $word = Word::find($id);
+            $word->delete();
+        } else {
+            $user = User::find(Auth::user()->id);
+            $user->words()->detach($id);
+        }
+
         Session::flash('success', 'The word was successfully deleted');
         return redirect()->route('words.index');
     }

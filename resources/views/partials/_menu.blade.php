@@ -16,7 +16,7 @@
                     <div class="menu_img">
                     <span class="ico ico-interest"></span>
                     </div>
-                    <a href="/words">Common dictionary</a>
+                    <a href="/common-dictionary">Common dictionary</a>
                 </li>
                 <li class="menu-item">
                     <div class="menu_img">

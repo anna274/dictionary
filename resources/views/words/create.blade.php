@@ -4,8 +4,8 @@
         @include('partials._menu')
         <div class="workspace">
             <div class="workspace__title-area">
-                <h2 class="workspace__title">Dictionary Managment</h2>
-                <p class="workspase__title-comment">Creating new word</p>
+                <h2 class="workspace__title">Creating new word</h2>
+                <p class="workspase__title-comment">Do somethimg awesome</p>
             </div>
             <div class="blank">
               <form class="form" method="post" action="/words">

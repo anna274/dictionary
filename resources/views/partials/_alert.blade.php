@@ -13,5 +13,10 @@
       <storng>Success:</strong> {{Session::get('success')}}
     </div>
   @endif
+  @if(Session::has('attention'))
+    <div class="alert alert_attention  active">
+      <storng>Attention:</strong> {{Session::get('attention')}}
+    </div>
+  @endif
 
   <script type="text/javascript" src="{{asset('js/alert.js')}}"></script>

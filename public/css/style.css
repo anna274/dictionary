@@ -522,6 +522,11 @@ p {
     margin-bottom: 42px;;
 }
 
+.blank .blank__comment {
+    text-align: center;
+    padding: 20px;
+}
+
 .blanks > .blank:last-child {
     margin-bottom: 0;
 }

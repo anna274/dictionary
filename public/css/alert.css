@@ -15,3 +15,7 @@
 .alert_danger {
   background-color: rgb(255, 51, 15);
 }
+
+.alert_attention {
+  background-color: rgb(255, 211, 15);
+}
