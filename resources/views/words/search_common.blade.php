@@ -7,17 +7,17 @@
                 <h2 class="workspace__title">Search Results</h2>
                 <p class="workspase__title-comment"></p>
             </div>
+
             <div class="options">
               <div class="options__search">
-                <form class="search" action="/search">
+                <form class="search" action="/common-dictionary/search">
                   <input class="search__input" type="text" name="findme" placeholder='{{$poisk}}'>
                     <button class="search__button" type="submit">
                       <span class="ico ico-search"></span>
-                    </button>
+                  </button>
                 </form>
-                <a href="/words" class="button button_colored-yellow">Reset</a>
+                <a href="/common-dictionary" class="button button_colored-yellow">Reset</a>
               </div>
-              <a href="words/create" class="button button_colored-pink">Add new word</a>
             </div>
             <div class="blank blank_wide">
                 @if(count($objs) == 0)
@@ -29,7 +29,7 @@
                 <div class="word-lines">
                     @foreach($objs as $obj)
                     <div class="word-line">
-                      <div class="word"><a class="show-link" href="words/{{$obj['id']}}">{{$obj['expression']}}</a></div>
+                      <div class="word"><a class="show-link" href="common-dictionary/{{$obj['id']}}">{{$obj['expression']}}</a></div>
                       <div class="word__definition">{{$obj['meaning']}}</div>
                     </div>
                     @endforeach

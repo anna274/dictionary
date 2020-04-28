@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Word;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class SearchController extends Controller
 {
-    public function getUserIndex($isAdmin) {
+    public function search() {
         $poisk = $_GET['findme'];
 
-        if($isAdmin) {
+        if(Auth::user()->isAdmin) {
             $objs = Word::where('expression','LIKE', '%'.$poisk.'%')
             ->orWhere('meaning','LIKE','%'.$poisk)
             ->orderBy('expression')
@@ -22,10 +24,10 @@ class SearchController extends Controller
             ->paginate(5);
         }
 
-        return view('words.search', compact('objs','poisk', 'isAdmin'));
+        return view('words.search', compact('objs','poisk'));
 
     }
-    public function getIndex($isAdmin){
+    public function commonSearch(){
 
         $poisk = $_GET['findme'];
 
@@ -34,6 +36,6 @@ class SearchController extends Controller
         ->orderBy('expression')
         ->paginate(5);
 
-        return view('words.search', compact('objs','poisk', 'isAdmin'));
+        return view('words.search_common', compact('objs','poisk'));
     }
 }

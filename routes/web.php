@@ -26,7 +26,8 @@ Route::get('users/{user}',  ['as' => 'users.edit', 'uses' => 'UserController@edi
 Route::patch('users/{user}/update',  ['as' => 'users.update', 'uses' => 'UserController@update']);
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/search', 'SearchController@getIndex');
+Route::get('/search', 'SearchController@search');
+Route::get('/common-dictionary/search', 'SearchController@commonSearch');
 Route::get('/common-dictionary', 'WordController@commonIndex');
 Route::get('/common-dictionary/{id}', 'WordController@commonShow');
 Route::get('/common-dictionary/{id}/add', 'WordController@add');

@@ -40,13 +40,13 @@
                 <h2 class="text_upper">Go up and never stop</h2>
                 <div class="contacts">   
                     <h3>Contuct us:</h3>
-                    <p>
+                    <p class="contact">
                         <span class="ico contact__ico ico-phone"></span><a href="#">+375(44)750-17-36</a>                 
                     </p>
-                    <p>
+                    <p class="contact">
                         <span class="ico contact__ico ico-mail"></span><a href="#">anna_rusakovich.01@mail.ru</a>                 
                     </p>
-                    <p>You can find code of this project <a href="#">here</a></p>
+                    <p class="contact_add-info">You can find code of this project <a href="#">here</a></p>
                 </div> 
             </div>
         </footer>

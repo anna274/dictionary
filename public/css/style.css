@@ -165,7 +165,25 @@ p {
     margin: 0;
 }
 .contacts > h3 {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+}
+
+.contact a {
+    color: #ffffff;
+}
+
+.contact_add-info {
+    color: #FCAFAB;
+    font-size: 1.7rem;
+}
+.contact_add-info a {
+    color: #FCAFAB;
+    text-decoration: underline;
 }
 
 .ico {
@@ -695,6 +713,19 @@ p {
 }
 
 .options >*:last-child {
+    margin-right: 0;
+}
+
+.options__search {
+    display: flex;
+    flex-direction: row;
+}
+
+.options__search > * {
+    margin-right: 10px;
+}
+
+.options__search >*:last-child {
     margin-right: 0;
 }
 

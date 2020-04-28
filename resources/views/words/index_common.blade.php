@@ -8,7 +8,7 @@
                 <p class="workspase__title-comment"></p>
             </div>
             <div class="options">
-              <form class="search" action="/search">
+              <form class="search" action="/common-dictionary/search">
                 <input class="search__input" type="text" name="findme" placeholder='Find me...'>
                   <button class="search__button" type="submit">
                     <span class="ico ico-search"></span>
