@@ -12,7 +12,13 @@
                         <span class="ico ico-dictionary"></span>
                         </div>
                         <a href="/words">Dictionary managment</a>
-                    </li>     
+                    </li>   
+                    <li class="menu-item">
+                        <div class="menu_img">
+                        <span class="ico ico-user"></span>
+                        </div>
+                        <a href="/users">User managment</a>
+                    </li>   
                 @else
                     <li class="menu-item">
                         <div class="menu_img">
@@ -31,7 +37,7 @@
                     <div class="menu_img">
                     <span class="ico ico-edit"></span>
                     </div>
-                    <a href="/users/{{Auth::user()->id}}">Edit profile</a>
+                    <a href="/users/{{Auth::user()->id}}/edit">Edit profile</a>
                 </li>
                 <li class="menu-item">
                     <div class="menu_img">

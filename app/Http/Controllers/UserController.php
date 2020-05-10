@@ -15,6 +15,16 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
+    public function index() {
+        $users = User::orderBy('isAdmin','desc')->paginate(5);
+        return view('users.index', compact('users'));
+    }
+
+    public function show($id) {
+        $user = User::find($id);
+        return view('users.show')->withUser($user);
+    }
+
     public function edit(User $user)
     {   
         $user = Auth::user();
@@ -85,6 +95,21 @@ class UserController extends Controller
 
         return redirect('/home');
 
+    }
+
+    public function changeStatus($id) {
+        $user = User::find($id);
+        $user->isAdmin = !$user->isAdmin;
+        $user->save();
+        Session::flash('success', 'Status was successfuly changed!');
+        return back();
+    }
+
+    public function delete($id) {
+        $user = User::find($id);
+        $user->delete();
+        Session::flash('success', 'User was successfuly deleted!');
+        return redirect('/users');
     }
 
 }

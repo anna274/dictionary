@@ -38,4 +38,16 @@ class SearchController extends Controller
 
         return view('words.search_common', compact('objs','poisk'));
     }
+
+    public function userSearch() {
+        $poisk = $_GET['findme'];
+
+        $objs = User::where('name','LIKE', '%'.$poisk.'%')
+        ->orWhere('email','LIKE','%'.$poisk)
+        ->orderBy('isAdmin', 'desc')
+        ->orderBy('name')
+        ->paginate(5);
+
+        return view('users.search', compact('objs','poisk'));
+    }
 }
