@@ -6,18 +6,27 @@
             <a href="/home">{{ Auth::user()->name }}</a>
         </li>
             <ul class="dropdown-content">
-                <li class="menu-item">
-                    <div class="menu_img">
-                    <span class="ico ico-dictionary"></span>
-                    </div>
-                    <a href="/words">My dictionary</a>
-                </li>
-                <li class="menu-item">
-                    <div class="menu_img">
-                    <span class="ico ico-interest"></span>
-                    </div>
-                    <a href="/common-dictionary">Common dictionary</a>
-                </li>
+                @if(Auth::user()->isAdmin)
+                    <li class="menu-item">
+                        <div class="menu_img">
+                        <span class="ico ico-dictionary"></span>
+                        </div>
+                        <a href="/words">Dictionary managment</a>
+                    </li>     
+                @else
+                    <li class="menu-item">
+                        <div class="menu_img">
+                        <span class="ico ico-dictionary"></span>
+                        </div>
+                        <a href="/words">My dictionary</a>
+                    </li>
+                    <li class="menu-item">
+                        <div class="menu_img">
+                        <span class="ico ico-interest"></span>
+                        </div>
+                        <a href="/common-dictionary">Common dictionary</a>
+                    </li>
+                @endif
                 <li class="menu-item">
                     <div class="menu_img">
                     <span class="ico ico-edit"></span>

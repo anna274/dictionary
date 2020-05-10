@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->string('photoUrl')->default('assets/img/user-default.png');
+            $table->string('photoUrl')->default('https://image.flaticon.com/icons/svg/483/483361.svg');
             $table->boolean('isAdmin')->default(false);
             $table->timestamps();
         });

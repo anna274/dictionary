@@ -4,7 +4,11 @@
         @include('partials._menu')
         <div class="workspace">
             <div class="workspace__title-area">
-                <h2 class="workspace__title">My Dictionary</h2>
+                @if(Auth::user()->isAdmin)
+                  <h2 class="workspace__title">Dictionary Managment</h2>
+                @else
+                  <h2 class="workspace__title">My Dictionary</h2>
+                @endif
                 <p class="workspase__title-comment"></p>
             </div>
             <div class="options">

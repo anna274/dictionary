@@ -4,7 +4,8 @@
         @include('partials._menu')
         <div class="workspace">
             <div class="workspace__title-area">
-                <h2 class="workspace__title">Your Dictionary</h2>
+                <h2 class="workspace__title">Common Dictionary</h2>
+                <p class="workspase__title-comment">You can add add it ;)</p>
             </div>
             <div class="blank show-blank">
               <div class="return">
