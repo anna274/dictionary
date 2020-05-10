@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Illuminate\Support\Facades\Hash;
+use Session;
 
 class UserController extends Controller
 {
@@ -17,6 +19,12 @@ class UserController extends Controller
     {   
         $user = Auth::user();
         return view('users.edit', compact('user'));
+    }
+
+    public function editPassword(User $user)
+    {   
+        $user = Auth::user();
+        return view('users.edit_password', compact('user'));
     }
 
     public function update(User $user)
@@ -51,4 +59,32 @@ class UserController extends Controller
                 
         }
     }
+
+    public function updatePassword(Request $request){
+
+        if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
+            Session::flash('attention', 'Your current password does not matches with the password you provided. Please try again.');
+            return redirect()->back()->with("error","Your current password does not matches with the password you provided. Please try again.");
+        }
+
+        if(strcmp($request->get('current-password'), $request->get('new-password')) == 0){
+            Session::flash('attention',"New Password cannot be same as your current password. Please choose a different password.");
+            return redirect()->back()->with("error","New Password cannot be same as your current password. Please choose a different password.");
+        }
+
+        $validatedData = $request->validate([
+            'current-password' => 'required',
+            'new-password' => 'required|string|min:8|confirmed',
+        ]);
+
+        $user = Auth::user();
+        $user->password = bcrypt($request->get('new-password'));
+        $user->save();
+
+        Session::flash('success', 'Password changed successfully!');
+
+        return redirect('/home');
+
+    }
+
 }

@@ -88,6 +88,10 @@ p {
     width: 540px;
 }
 
+.buttons {
+    display: flex;
+}
+
 .header__buttons {
     margin-top: 30px;
 }
@@ -294,6 +298,10 @@ p {
     border-radius: 10px 0 0 10px;
 }
 
+.autho__comment {
+    line-height: 3rem;
+}
+
 .autho__info-area {
     box-sizing: border-box;
     padding: 55px 75px;
@@ -349,7 +357,11 @@ p {
 .autho__links {
     display: flex;
     justify-content: space-between; 
-    
+   flex-wrap: wrap; 
+}
+
+.autho__links.center {
+    justify-content: center;
 }
 
 .autho__log-in .autho__links > a {

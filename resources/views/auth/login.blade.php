@@ -12,23 +12,14 @@
                         <div class="input">
                             <span class="ico input__ico ico-user"></span>
                             <input id="email" type="email" class="input__text" name="email" placeholder="E-mail" required>
-                            @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+    
                         </div>
                         <div class="input">
                             <span class="ico input__ico ico-lock"></span>
                             <input class="input__text" id="password" type="password" name="password" placeholder="Password" required>
-                        </div>   
-                        @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror          
+                        </div>           
 
-                        <a href="#">Forgot password?</a>
+                        <a href="{{ route('password.request') }}">Forgot password?</a>
                         <button type="submit" class="button">Log in</button>
                     </form>
                     <div class="autho__links">

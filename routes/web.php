@@ -24,6 +24,8 @@ Route::group(['middleware' => ['web']], function() {
 
 Route::get('users/{user}',  ['as' => 'users.edit', 'uses' => 'UserController@edit']);
 Route::patch('users/{user}/update',  ['as' => 'users.update', 'uses' => 'UserController@update']);
+Route::get('users/{user}/edit/password',  'UserController@editPassword');
+Route::post('users/edit/password/update','UserController@updatePassword');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/search', 'SearchController@search');

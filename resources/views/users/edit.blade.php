@@ -23,7 +23,11 @@
                     <input id="photoUrl" name="photoUrl" class="input" type="text" placeholder="Photo URL" value="{{ $user->photoUrl }}">
                 </div>
                 <div class="form__item">
-                  <button type="submit" class="button button_colored-pink">Save changes</button>
+                  <div class="buttons">
+                    <button type="submit" class="button button_colored-pink">Save changes</button>
+                    <a href="/users/{{Auth::user()->id}}/edit/password" class="button button_colored-yellow">Change password</a>
+                  </div>
+
                 </div>
               </form>
             </div>         
