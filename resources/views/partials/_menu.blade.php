@@ -49,4 +49,5 @@
                     </form>
                 </li>
             </ul>
-    </nav>
+</nav>
+<script type="text/javascript" src="{{asset('js/menu.js')}}"></script>

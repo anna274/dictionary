@@ -19,8 +19,8 @@
                     <input id="new-password" name="new-password" class="input" type="password">
                 </div>
                 <div class="form__item">
-                  <label for="new-password-confirm" class="label">Repeat new password</label>
-                    <input id="new-password-confirm" name="new-password-confirm" class="input" type="password">
+                  <label for="new-password_confirmation" class="label">Repeat new password</label>
+                    <input id="new-password_confirmation" name="new-password_confirmation" class="input" type="password">
                 </div>
                 <div class="form__item">
                   <button type="submit" class="button button_colored-pink">Change password</button>

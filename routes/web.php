@@ -27,10 +27,10 @@ Route::patch('users/{user}/update',  ['as' => 'users.update', 'uses' => 'UserCon
 Route::get('users/{user}/edit/password',  'UserController@editPassword');
 Route::post('users/edit/password/update','UserController@updatePassword');
 Route::get('/users', 'UserController@index');
+Route::get('/users/search', 'SearchController@userSearch');
 Route::get('/users/{user}', 'UserController@show');
 Route::get('/users/{user}/change-status', 'UserController@changeStatus');
 Route::delete('/users/{user}/delete', 'UserController@delete');
-Route::get('/users/search', 'SearchController@userSearch');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/search', 'SearchController@search');
